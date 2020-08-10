@@ -1,17 +1,22 @@
 name: Update-Repo
 description: Update this Repo with Repo-Project Information from other Repos
-on:
-  - pull_request
-jobs:
-  my-action:
-    runs-on: ubuntu-latest
-    steps:
-      # Check out code using git
-      - uses: actions/checkout@v2
-      # Install Node 12
-      - uses: actions/setup-node@v1
-        with:
-          version: 12
-      # Node.js script can be anywhere. A good convention is to put local GitHub Actions
-      # into the `.github/actions` folder
-      - run: node .github/actions/update-repo-action/index.js
+runs:
+  using: node12 # Runtime Environment
+  main: index.js # Script to run, path is relative
+
+
+#on:
+#  - pull_request
+#jobs:
+#  my-action:
+#    runs-on: ubuntu-latest
+#    steps:
+#      # Check out code using git
+#      - uses: actions/checkout@v2
+#      # Install Node 12
+#      - uses: actions/setup-node@v1
+#        with:
+#          version: 12
+#      # Node.js script can be anywhere. A good convention is to put local GitHub Actions
+#      # into the `.github/actions` folder
+#      - run: node .github/actions/update-repo-action/index.js

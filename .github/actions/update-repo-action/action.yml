@@ -14,4 +14,4 @@ jobs:
           version: 12
       # Node.js script can be anywhere. A good convention is to put local GitHub Actions
       # into the `.github/actions` folder
-      - run: node index.js
+      - run: node .github/actions/update-repo-action/index.js

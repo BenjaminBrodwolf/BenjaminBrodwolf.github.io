@@ -6,10 +6,7 @@ const octokit = new Octokit();
 console.log("Action: Update Repo Start");
 
 
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
 
-console.log(owner)
-console.log(repo)
 
 octokit.repos
     .listForOrg({
@@ -20,6 +17,10 @@ octokit.repos
         console.log(data)
     });
 
+const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+
+console.log(owner)
+console.log(repo)
 
 // const myGitHubReposUrl = "https://api.github.com/users/BenjaminBrodwolf/repos"
 // const mattWolfGitHubReposUrl = "https://api.github.com/users/mattwolf-corporation/repos"

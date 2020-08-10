@@ -16,4 +16,4 @@ jobs:
       # into the `.github/actions` folder
       - run: node .github/actions/index.js
         with:
-          GITHUBTOKEN: ${{ secrets.GITHUBTOKEN }}
+          GITHUB_TOKEN: ${{ GITHUBTOKEN }}

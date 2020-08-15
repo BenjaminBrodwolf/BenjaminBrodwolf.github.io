@@ -10,3 +10,5 @@ jobs:
     steps: # Each action/command to run
     - uses: actions/checkout@v2 # Helps check out the repo code
     - uses: ./.github/actions/update-repo-action # Tell it to run out JS Action
+      with:      
+        repo-token: ${{ secrets.GITHUB_TOKEN }}

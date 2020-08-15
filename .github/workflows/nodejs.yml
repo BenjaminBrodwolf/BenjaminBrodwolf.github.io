@@ -15,7 +15,8 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2 # Helps check out the repo code
+    - uses: ./.github/actions/update-repo-action # Tell it to run out JS Action
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:

@@ -1,0 +1,91 @@
+[
+  {
+    "name": "CryptoSnake",
+    "full_name": "BenjaminBrodwolf/CryptoSnake",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/CryptoSnake/master/repoImage.png",
+    "homepage": "",
+    "github_url": "https://github.com/BenjaminBrodwolf/CryptoSnake",
+    "languages": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "description": "Blockchain-Basierte Web-Applikation"
+  },
+  {
+    "name": "InstaLoveBot",
+    "full_name": "BenjaminBrodwolf/InstaLoveBot",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/InstaLoveBot/master/repoImage.png",
+    "homepage": "",
+    "github_url": "https://github.com/BenjaminBrodwolf/InstaLoveBot",
+    "languages": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "description": "Instagram Like-Bot for sharing love"
+  },
+  {
+    "name": "IoT-Terrarium-Monitoring-Control-System",
+    "full_name": "BenjaminBrodwolf/IoT-Terrarium-Monitoring-Control-System",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/IoT-Terrarium-Monitoring-Control-System/master/repoImage.png",
+    "homepage": "https://fhnw-iot-5ibb1.github.io/fhnw-iot-project-Terrarium-Monitoring-Control-System/TerrariumWebApp.html",
+    "github_url": "https://github.com/BenjaminBrodwolf/IoT-Terrarium-Monitoring-Control-System",
+    "languages": [
+      "C++",
+      "HTML"
+    ],
+    "description": "IoT Terrarium - Monitoring and Control System "
+  },
+  {
+    "name": "IVIS_Switzerland",
+    "full_name": "BenjaminBrodwolf/IVIS_Switzerland",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/IVIS_Switzerland/master/repoImage.png",
+    "homepage": "https://benjaminbrodwolf.github.io/IVIS_Switzerland/index.html",
+    "github_url": "https://github.com/BenjaminBrodwolf/IVIS_Switzerland",
+    "languages": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "description": "Interactive data Visualization of Switzerland"
+  },
+  {
+    "name": "ML_NLP",
+    "full_name": "BenjaminBrodwolf/ML_NLP",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/ML_NLP/master/repoImage.png",
+    "homepage": "",
+    "github_url": "https://github.com/BenjaminBrodwolf/ML_NLP",
+    "languages": [
+      "HTML",
+      "Jupyter Notebook",
+      "MATLAB"
+    ],
+    "description": "AI Study Projects: Machine Learning (ML) & Natural Language Processing (NLP)"
+  },
+  {
+    "name": "PWA-HanumanCard",
+    "full_name": "BenjaminBrodwolf/PWA-HanumanCard",
+    "image": "https://raw.githubusercontent.com/BenjaminBrodwolf/PWA-HanumanCard/master/repoImage.png",
+    "homepage": "https://benjaminbrodwolf.me/PWA-HanumanCard",
+    "github_url": "https://github.com/BenjaminBrodwolf/PWA-HanumanCard",
+    "languages": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "description": "Hanuman Yoga Teacher Training Yoga-Pose FlashCard"
+  },
+  {
+    "name": "ip6_lambda-calculus-in-js",
+    "full_name": "mattwolf-corporation/ip6_lambda-calculus-in-js",
+    "image": "https://raw.githubusercontent.com/mattwolf-corporation/ip6_lambda-calculus-in-js/master/repoImage.png",
+    "homepage": "https://mattwolf-corporation.gitbook.io/ip5-lambda-calculus/",
+    "github_url": "https://github.com/mattwolf-corporation/ip6_lambda-calculus-in-js",
+    "languages": [
+      "JavaScript",
+      "HTML"
+    ],
+    "description": "Lambda Kalkül für praktisches JavaScript - IP5 HS2019"
+  }
+]

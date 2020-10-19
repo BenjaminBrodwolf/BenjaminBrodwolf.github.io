@@ -49,7 +49,7 @@ const loadGitHubRepo = async url => {
 const myRepos = await loadGitHubRepo(myGitHubReposUrl)
 const ip5 = await loadGitHubRepo(mattWolfGitHubReposUrl)
 
-const allRepos = [...myRepos, ...ip5]
+const allRepos = [...myRepos, ...ip5].reverse()
 
 
 console.log(allRepos)

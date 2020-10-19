@@ -9,100 +9,99 @@
 
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="style.css">-->
 
 
     <style>
+        /*.path {*/
+        /*    stroke-dasharray: 100;*/
+        /*    stroke-dashoffset: 0;*/
+        /*    animation: dash 5s normal;*/
+        /*}*/
 
+        /*@keyframes dash {*/
+        /*    from {*/
+        /*        stroke-dashoffset: 990;*/
+        /*    }*/
+        /*    to {*/
+        /*        stroke-dashoffset: 0;*/
+        /*    }*/
+        /*}*/
 
-        header {
-            display: flex;
-
-            border: #333333 2px solid;
-            padding: 2%;
+        svg {
+            z-index: -1;
         }
 
-        header img {
-            align-self: flex-start;
-
-            margin: 5px;
-            width: 126px;
-            height: auto;
-        }
-
-        .container_text {
-            flex: 1 1 auto;
-
-            padding-left: 10px;
+        .line {
+            position: absolute;
+            width: 1px;
+            background-color: red;
         }
 
     </style>
+    <script src="js/adjustLine.js"></script>
 </head>
 <body>
 <main>
 
-    <header>
-        <img src="https://avatars2.githubusercontent.com/u/32330119?s=460&u=28e80484bb6926adbb110b302bc7a3bd86162273&v=4"
+    <header class="border-solid border-4 border-gray-700 p-5 m-5">
+        <img class="inline-block solar-green"
+             src="https://avatars2.githubusercontent.com/u/32330119?s=460&u=28e80484bb6926adbb110b302bc7a3bd86162273&v=4"
              width="64" height="64" alt="Benjamin Brodwolf Profil-Foto">
-        <div class="container_text">
+        <div class="inline-block">
             <h1>Benjamin <br> Brodwolf</h1>
             <h3>Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
                 Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.</h3>
         </div>
     </header>
 
-    <section>
+    <section style="height: 400px" class="">
+        <!--        <div class="linepoint-animated h-56">-->
+        <!--            <svg class="" viewBox="0 0 600 724" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--                <path class="path absolute top-0 right-0" stroke="black" stroke-width="1"-->
+        <!--                      d="-->
 
-        <div class="container_left">
-            <h2>Berufserfahrung</h2>
-            <pre>
-                Fachhochschule Nordwestschweiz FHNW
-                Bachelor-Student
-                September 2017 - Present
-                Brugg, Aargau, Schweiz
-            </pre>
-            <pre>
-                Jeker Architekten SIA AG
-                Zeichner EFZ, FR Architektur
-                2016 - 2017
-                Basel
-            </pre>
-            <pre>
-                SuperdraftStudio GmbH
-                Zeichner EFZ, FR Architektur
-                2015 - 2016
-                Basel
-            </pre>
-            <pre>
-                Ferrara Architekten AG
-                Zeichner EFZ, FR Architektur
-                2011 - 2014
-                Basel
-            </pre>
-            <pre>
-                Mermet+Burckhardt AG
-                Zeichner EFZ, FR Architektur
-                2007 - 2011
-                Basel
-            </pre>
+        <!--                            m 20  0 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
+        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
+        <!--                             -20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
+        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
+        <!--                             -20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
+        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10-->
+        <!--                        "/>-->
+        <!--            </svg>-->
+        <!--        </div>-->
+
+        <div class=" mx-auto w-full">
+            <h2 class="text-xl text-gray-900">Berufserfahrung</h2>
+<!--            <p class="text-gray-600">Aktuell veröffentlichte GitHub-Projekte</p>-->
+            <div id="experiences" class="relative">
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+
+    <section>
+        <div class=" mx-auto w-3/4">
+            <h2 class="text-xl text-gray-900">Public Projekte</h2>
+            <p class="text-gray-600">Aktuell veröffentlichte GitHub-Projekte</p>
+            <div id="repos" class="flex justify-center flex-wrap"></div>
         </div>
     </section>
 
-
     <section>
-        <h2>Works</h2>
-        <div id="repos"></div>
+        <div class=" mx-auto w-1/2">
+            <h2 class="text-xl text-gray-900">Webseiten</h2>
+            <p class="text-gray-600">Aktuell erstellte Webseiten</p>
+            <div id="sites" class="flex-wrap justify-center"></div>
+        </div>
 
-    </section>
+        </div>
 
-    <section>
-        <h2>Websites</h2>
-        <div id="sites"></div>
-
-        <p>Hanuman Yoga Basel</p>
-        <p>PSP Basel</p>
-        <p>APG Basel</p>
-        <p>Fyyrstell</p>
     </section>
 
     <section>
@@ -122,54 +121,28 @@
 
 <script>
     const view = document.getElementById("repos")
+    const sites = document.getElementById("sites")
+    const experiences = document.getElementById("experiences")
+
     start();
 
-    const myWebsites = [
-        {
-            "name": "Hanuman Yoga Studio",
-            "description": "Hanuman Yoga in Basel ist zentral gelegen und bietet einen flexiblen Stundenplan mit unterschiedlichen Yogastilen",
-            "address": "https://hanumanyoga.ch",
-            "logo": "images/hanumanyoga.png",
-            "screencapture": "images/screencapture-hanumanyoga.png"
-        },
-        {
-            "name": "My Pleasure! Festival",
-            "description": "Ein Festival für Körper, Lust & Empowerment vom 23.10 – 25.10.2020 im HANUMAN YOGA STUDIO in Basel",
-            "address": "https://mypleasurefestival.ch/",
-            "logo": "https://mypleasurefestival.ch/wp-content/uploads/2020/09/Startseite_Clit-600x450.png",
-            "screencapture": "images/screencapture-mypleasurefestival.png"
-        },
-        {
-            "name": "FYYRSTELL",
-            "description": "Das Catering Fyyrstell-Velo bringt köstliches Essen (Burger, zwei weitere Klassiker in naher Zukunft) und eine Plattform für Austausch und Begegnung.",
-            "address": "https://fyyrstell.ch/",
-            "logo": "https://fyyrstell.ch/wp-content/uploads/2020/07/FYYRSTELL_Logo-Naturweiss_Vollst%C3%A4ndig.svg",
-            "screencapture": "images/screencapture-fyyrstell.png"
-        },
-        {
-            "name": "PSP - Basel",
-            "description": "PSP Postgraduale Studiengänge in Psychotherapie",
-            "address": "https://www.psp-basel.ch",
-            "logo": "https://psp-basel.ch/images/logo/psp-color-rgb.svg",
-            "screencapture": "images/screencapture-psp-basel.png"
-        },
-    ]
-
-    const sites = document.getElementById("sites")
-
-    let websites = ""
-    myWebsites.forEach(e => {
-        websites += `
-          <div class="repo">
-            <img src="${e.logo}" alt="${e.name}">
-            <h5>${e.name}</h5>
-            <p>${e.description}</p>
-            <p>${e.address}</p>
-            <img src="${e.screencapture}" alt="${e.name}">
-          </div>
-          `
-    })
-    sites.innerHTML = websites;
-
+    //
+    // const path = document.querySelector('.linepoint-animated path');
+    // console.log(path)
+    // const length = path.getTotalLength();
+    // console.log(length)
+    // // Clear any previous transition
+    // path.style.transition = path.style.WebkitTransition = 'none';
+    // // Set up the starting positions
+    // path.style.strokeDasharray = length + ' ' + length;
+    // path.style.strokeDashoffset = length;
+    // // Trigger a layout so styles are calculated & the browser
+    // // picks up the starting position before animating
+    // path.getBoundingClientRect();
+    // // Define our transition
+    // path.style.transition = path.style.WebkitTransition =
+    //     'stroke-dashoffset 2s ease-in-out';
+    // // Go!
+    // path.style.strokeDashoffset = '0';
 </script>
 </html>

@@ -55,36 +55,15 @@
         </div>
     </header>
 
+<!-- WorkExperience-->
     <section style="height: 400px" class="">
-        <!--        <div class="linepoint-animated h-56">-->
-        <!--            <svg class="" viewBox="0 0 600 724" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-        <!--                <path class="path absolute top-0 right-0" stroke="black" stroke-width="1"-->
-        <!--                      d="-->
-
-        <!--                            m 20  0 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
-        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
-        <!--                             -20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
-        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
-        <!--                             -20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10 l-->
-        <!--                              20 20 l 0 50 a 1 1 0 0 0 0 10 a 1 1 0 0 0 0 -10 a 1 1 0 0 0 0 10-->
-        <!--                        "/>-->
-        <!--            </svg>-->
-        <!--        </div>-->
-
         <div class=" mx-auto w-full">
             <h2 class="text-xl text-gray-900">Berufserfahrung</h2>
-<!--            <p class="text-gray-600">Aktuell veröffentlichte GitHub-Projekte</p>-->
-            <div id="experiences" class="relative">
-            </div>
+            <div id="experiences" class="relative"></div>
         </div>
-
-
-
-
-
     </section>
 
-
+<!--Public Projects-->
     <section>
         <div class=" mx-auto w-3/4">
             <h2 class="text-xl text-gray-900">Public Projekte</h2>
@@ -93,56 +72,35 @@
         </div>
     </section>
 
+<!--Websites-->
     <section>
         <div class=" mx-auto w-1/2">
             <h2 class="text-xl text-gray-900">Webseiten</h2>
             <p class="text-gray-600">Aktuell erstellte Webseiten</p>
             <div id="sites" class="flex-wrap justify-center"></div>
         </div>
+    </section>
 
+<!--Knowledge-->
+    <section>
+        <div class=" mx-auto w-3/4">
+            <h2 class="text-xl text-gray-900">Kenntnisse</h2>
+            <div id="knowledge" class="flex justify-center flex-wrap"></div>
         </div>
-
-    </section>
-
-    <section>
-        <h2>Technology and Philosophy</h2>
-    </section>
-
-    <section>
-        <h2>Curriculum vitae</h2>
     </section>
 
     <footer>
-
 
     </footer>
 </main>
 </body>
 
 <script>
-    const view = document.getElementById("repos")
-    const sites = document.getElementById("sites")
-    const experiences = document.getElementById("experiences")
+    const reposView = document.getElementById("repos")
+    const sitesView = document.getElementById("sites")
+    const experiencesView = document.getElementById("experiences")
 
-    start();
+    render();
 
-    //
-    // const path = document.querySelector('.linepoint-animated path');
-    // console.log(path)
-    // const length = path.getTotalLength();
-    // console.log(length)
-    // // Clear any previous transition
-    // path.style.transition = path.style.WebkitTransition = 'none';
-    // // Set up the starting positions
-    // path.style.strokeDasharray = length + ' ' + length;
-    // path.style.strokeDashoffset = length;
-    // // Trigger a layout so styles are calculated & the browser
-    // // picks up the starting position before animating
-    // path.getBoundingClientRect();
-    // // Define our transition
-    // path.style.transition = path.style.WebkitTransition =
-    //     'stroke-dashoffset 2s ease-in-out';
-    // // Go!
-    // path.style.strokeDashoffset = '0';
-</script>
+  </script>
 </html>

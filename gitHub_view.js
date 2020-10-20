@@ -1,4 +1,4 @@
-const myWorkExperience = [
+const myExperiences = [
     {
         "type": "edu",
         "name": "Allgemeine Gewerbeschule Basel",
@@ -42,7 +42,7 @@ const myWorkExperience = [
     {
         "type": "edu",
         "name": "Fachhochschule Nordwestschweiz FHNW",
-        "employment": "Bachelor of Applied Science <br> BASc, Informatik Profilierung iCompetence",
+        "employment": "Bachelor of Applied Science <br>Informatik Profilierung iCompetence",
         "dates": "September 2017 - 2021",
         "location": "Brugg/Windisch",
         "url": "https://www.fhnw.ch/"
@@ -57,22 +57,6 @@ const myWorkExperience = [
     }
 ]
 
-const myEducation = [
-    {
-        "name": "Allgemeine Gewerbeschule Basel",
-        "employment": "Ausbildung, Fachzeichner Architektur",
-        "dates": "September 2007 - 2011",
-        "location": "Basel",
-        "url": "https://www.agsbs.ch/"
-    },
-    {
-        "name": "Fachhochschule Nordwestschweiz FHNW",
-        "employment": "Bachelor of Applied Science <br> BASc, Informatik Profilierung iCompetence",
-        "dates": "September 2017 - 2021",
-        "location": "Brugg/Windisch",
-        "url": "https://www.fhnw.ch/"
-    }
-]
 const myWebsites = [
     {
         "name": "Hanuman Yoga Studio",
@@ -110,27 +94,44 @@ const myWebsites = [
 
 const boxes = []
 
-const displayBox = expEdu => {
-    console.log(expEdu)
+const skills = {
+    "JavaScript": "100",
+    "Java": "90",
+    "Python": "85",
+    "HTML": "95",
+    "CSS": "93",
+    "C#": "70",
+    "React": "80",
+    "Angular": "40",
+    "Wordpress": "65",
+    "Figma": "80",
+    "ArchiCAD / VectorWorks": "30",
+    "Spring Framework": "50",
+    "Blender": "30",
+    "Objektorientierte Programmierung": "85",
+    "Funktionale Programmierung": "90",
+    "Internet of Things": "60",
+    "Machine Learning": "60",
+    "Natural Language Processing": "55",
+    "Firebase": "34",
+}
 
+
+const displayExperiences = experiences => {
     let exp = ""
     //          [edu, exp, exp, exp, exp, edu, exp]
-    const tops = [  0, 0.2, 1.2, 2.2, 3.2, 0, 2]
-    // const lefts = [150, 450, 450, 450, 450, 950]
-    const lefts = [-5, 15, 15, 15, 15, 45, 55]
+    const tops = [  0, 1, 2, 3, 4, 0, 2]
+    const lefts = [-5, 5, 5, 5, 5, 30, 35]
 
-    expEdu.forEach((e, i) => {
+    experiences.forEach((e, i) => {
         console.log(i)
         const alignBox = i === 0 ? "left" : "right" //(e.type === "edu") ? "left" : "right"
         const alignText = alignBox === "right" ? "left" : "right"
-        console.log(alignBox)
-        const rightShift = e.type === "edu" ? 50 : 500;
-        console.log("top: " + top)
-
         const animationDelay = i/2;
+
         exp += `
                 <div    id="box${i}" 
-                        style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 1}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
+                        style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
                         class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
                     <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
@@ -138,6 +139,7 @@ const displayBox = expEdu => {
                     </p>
                 </div>
           `
+
         boxes.push("box" + i)
     })
 
@@ -153,6 +155,14 @@ const displayBox = expEdu => {
         .setProperty("--experience-height", height + "px");
 }
 
+const displayWordCloud = () => {
+    let cloud = "<ul>"
+    for (let [key, value] of Object.entries(skills)) {
+        cloud += `<li class="" style="font-size: ${value * 3}%">'${key}'</li>`
+    }
+    cloud += "</ul>"
+    skillsView.innerHTML = cloud
+}
 
 const displayRepos = myRepos => {
     let repos = ""
@@ -192,7 +202,7 @@ const displaySites = myWebsites => {
     let websites = ""
     myWebsites.forEach(e => {
         websites += `
-            <div class="flex mt-5 ">
+            <div class="flex mt-5" style="min-height: 150px">
                 <div class="md:flex-shrink-0 p-2 " style="background-color: ${e.background}">
                     <img class="rounded-lg w-56" src="${e.logo}" alt="${e.name}">
                 </div>
@@ -216,8 +226,7 @@ const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()
     displayRepos(myRepos)
     displaySites(myWebsites)
-    displayBox(myWorkExperience, experiencesView, "exp")
-    // displayBox(myEducation, educationsView, "edu", 3)
-
+    displayExperiences(myExperiences, experiencesView, "exp")
+    displayWordCloud()
 }
 

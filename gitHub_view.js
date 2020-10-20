@@ -1,5 +1,14 @@
 const myWorkExperience = [
     {
+        "type": "edu",
+        "name": "Allgemeine Gewerbeschule Basel",
+        "employment": "Ausbildung, Fachzeichner Architektur",
+        "dates": "September 2007 - 2011",
+        "location": "Basel",
+        "url": "https://www.agsbs.ch/"
+    },
+    {
+        "type": "work",
         "name": "Mermet+Burckhardt AG",
         "employment": "Zeichner EFZ, FR Architektur",
         "dates": "2007 - 2011",
@@ -7,6 +16,7 @@ const myWorkExperience = [
         "url": "http://www.mermetburckhardt.ch/"
     },
     {
+        "type": "work",
         "name": "Ferrara Architekten AG",
         "employment": "Zeichner EFZ, FR Architektur",
         "dates": "2011 - 2014",
@@ -14,6 +24,7 @@ const myWorkExperience = [
         "url": "https://www.ferrara-architekten.ch/"
     },
     {
+        "type": "work",
         "name": "SuperdraftStudio GmbH",
         "employment": "Zeichner EFZ, FR Architektur",
         "dates": "2015 - 2016",
@@ -21,11 +32,28 @@ const myWorkExperience = [
         "url": "https://www.superdraftstudio.ch/"
     },
     {
+        "type": "work",
         "name": "Jeker Architekten SIA AG",
         "employment": "Zeichner EFZ, FR Architektur",
         "dates": "2016 - 2017",
         "location": "Basel",
         "url": "http://www.jekerarchitekten.ch/"
+    },
+    {
+        "type": "edu",
+        "name": "Fachhochschule Nordwestschweiz FHNW",
+        "employment": "Bachelor of Applied Science <br> BASc, Informatik Profilierung iCompetence",
+        "dates": "September 2017 - 2021",
+        "location": "Brugg/Windisch",
+        "url": "https://www.fhnw.ch/"
+    },
+    {
+        "type": "work",
+        "name": "youEngineering AG",
+        "employment": "Software Engineer",
+        "dates": "2021 - 20XX",
+        "location": "Basel",
+        "url": "https://youengineering.com/"
     }
 ]
 
@@ -76,53 +104,64 @@ const myWebsites = [
     },
 ]
 
+const boxes = []
 
-// const displayBox = myWorksEperience => {
+const displayBox = expEdu => {
+    console.log(expEdu)
+
+    let exp = ""
+    //          [edu, exp, exp, exp, exp, edu, exp]
+    const tops = [  0, 0.2, 1.2, 2.2, 3.2, 0, 2]
+    // const lefts = [150, 450, 450, 450, 450, 950]
+    const lefts = [0, 20, 20, 20, 20, 45, 55]
+
+    expEdu.forEach((e, i) => {
+        console.log(i)
+        const alignBox = i == 0 ? "left" : "right" //(e.type === "edu") ? "left" : "right"
+        const alignText = alignBox === "right" ? "left" : "right"
+        console.log(alignBox)
+        const rightShift = e.type === "edu" ? 50 : 500;
+        console.log("top: " + top)
+
+        exp += `
+                <div id="box${i}" style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 1}vw" class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
+                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+                    <p class="text-gray-800">${e.employment}</p>
+                    <p class="text-gray-600">${e.dates} <br> ${e.location}
+                    </p>
+                </div>
+          `
+        boxes.push("box" + i)
+    })
+    experiencesView.innerHTML = exp;
+    for (let i = 0; i < boxes.length - 1; i++) {
+        adjustLine(getElements(boxes[i], boxes[i + 1]))
+    }
+
+    const height = distanceToTop(getElement(boxes[boxes.length - 3]))
+    console.log(height)
+    document.documentElement.style
+        .setProperty("--experience-height", height + "px");
+}
+// const displayBoxes = (list, view, name, padding = 1) => {
+//     const boxes = []
 //     let exp = ""
-//     myWorksEperience.forEach((e, i) => {
+//     list.forEach((e, i) => {
 //         console.log(i)
-//         const alignBox = (i % 2 == 0) ? "right" : "left"
-//         const alignText = alignBox === "right" ? "left" : "right"
-//
-//         exp += `
-//                 <div id="box${i}" style="top: ${i*120}px; ${alignBox}: 20px" class="absolute bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 w-1/6 text-${alignText}">
-//                     <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+//          exp += `
+//                 <box id="${name}${i}" style="top: ${i*padding*120}px; left: ${50+i*20}px" class="absolute bg-white bg-gradient-to-r from-blue-200 to-gray-200  text-left ">
+//                     <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
 //                     <p class="text-gray-800">${e.employment}</p>
 //                     <p class="text-gray-600">${e.dates} <br> ${e.location}
 //                     </p>
-//                 </div>
+//                 </box>
 //           `
-//         boxes.push("box"+i)
+//         boxes.push(name + i.toString())
 //     })
-//     experiencesView.innerHTML = exp;
-//     for (let i = 0; i < boxes.length-1; i++){
-//         adjustLine(getElements(boxes[i], boxes[i+1]))
-//     }
+//     view.innerHTML = exp;
 //
-//     const height = distanceToTop(getElement(boxes[boxes.length - 1]))
-//     console.log(height)
-//     document.documentElement.style
-//         .setProperty("--experience-height", height+"px" );
+//     return boxes;
 // }
-const displayBoxes = (list, view, name, padding = 1) => {
-    const boxes = []
-    let exp = ""
-    list.forEach((e, i) => {
-        console.log(i)
-         exp += `
-                <box id="${name}${i}" style="top: ${i*padding*120}px; left: ${50+i*20}px" class="absolute bg-white bg-gradient-to-r from-blue-200 to-gray-200  text-left ">
-                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
-                    <p class="text-gray-800">${e.employment}</p>
-                    <p class="text-gray-600">${e.dates} <br> ${e.location}          
-                    </p>
-                </box>
-          `
-        boxes.push(name + i.toString())
-    })
-    view.innerHTML = exp;
-
-    return boxes;
-}
 
 
 const displaySites = myWebsites => {
@@ -178,9 +217,9 @@ const displayRepos = myRepos => {
     reposView.innerHTML = repos;
 }
 
-const drawBoxLines = boxes =>{
-    for (let i = 0; i < boxes.length-1; i++){
-        adjustLine(getElements(boxes[i], boxes[i+1]))
+const drawBoxLines = boxes => {
+    for (let i = 0; i < boxes.length - 1; i++) {
+        adjustLine(getElements(boxes[i], boxes[i + 1]))
     }
 }
 
@@ -188,18 +227,8 @@ const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()
     displayRepos(myRepos)
     displaySites(myWebsites)
-    const boxExp = displayBoxes(myWorkExperience, experiencesView, "exp")
-    const boxEdu = displayBoxes(myEducation, educationsView, "edu", 3)
+    displayBox(myWorkExperience, experiencesView, "exp")
+    // displayBox(myEducation, educationsView, "edu", 3)
 
-    const height = distanceToTop(getElement(boxExp[boxExp.length - 1]))
-
-    // const height = boxHeightExp > boxHeightEdu ? boxHeightExp : boxHeightEdu;
-    document.documentElement.style
-        .setProperty("--experience-height", height+"px" );
-
-
-    // const boxes = [boxEdu[0], ...boxExp, boxEdu[1]]
-    drawBoxLines(boxExp)
-    drawBoxLines(boxEdu)
 }
 

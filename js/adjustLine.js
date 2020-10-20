@@ -29,7 +29,6 @@ const adjustLine = ([from, to]) => {
     top -= H / 2;
 
     const line = document.createElement("LINE")
-    line.setAttribute("class", "line")
     line.setAttribute("class", "bg-blue-200")
 
     const transforms = ["-webkit-transform", "-moz-transform", "-ms-transform", "-o-transform", "-transform"]

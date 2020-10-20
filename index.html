@@ -28,37 +28,34 @@
     </style>
     <script src="js/adjustLine.js"></script>
 </head>
-<body>
-<main class="flex flex-col" style="background-color: var(--background_color)">
+<body style="background-color: var(--background_color)">
+<main class="mx-auto lg:w-3/4 flex flex-col" >
 
-    <header class="border-solid border-4 border-gray-700 p-5 m-5">
-        <img class="inline-block solar-green"
+    <header class="flex-wrap md:flex lg:flex border-solid border-4 border-gray-700 p-5 m-2">
+
+        <img class="rounded-lg  lg:w-1/6 sm:w-1/2"
              src="https://avatars2.githubusercontent.com/u/32330119?s=460&u=28e80484bb6926adbb110b302bc7a3bd86162273&v=4"
-             width="64" height="64" alt="Benjamin Brodwolf Profil-Foto">
-        <div class="inline-block">
-            <h1>Benjamin <br> Brodwolf</h1>
-            <h3>Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
-                Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.</h3>
+             alt="Benjamin Brodwolf Profil-Foto">
+
+        <div class="inline-block pl-5">
+            <div class=" font-mono text-5xl text-gray-900 font-black uppercase ">Benjamin <br> Brodwolf</div>
+            <div class="font-mono">Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
+                Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.</div>
         </div>
     </header>
 
 <!-- Experience/Education-->
-    <section id="expedu" style="height: var(--experience-height)" class="flex flex-wrap relative">
-        <div class="w-1/2">
-            <h2 class="text-xl text-gray-900">Berufserfahrung</h2>
+    <section  style="height: var(--experience-height)" class="">
+        <div class="w-full">
+            <h2 class="text-xl text-gray-900">Berufserfahrung / Ausbildung</h2>
             <div id="experiences" class="relative"></div>
-        </div>
-
-        <div class="w-1/2">
-            <h2 class="text-xl text-gray-900">Ausbildung</h2>
-            <div id="education" class="relative"></div>
         </div>
     </section>
 
 
 <!--Public Projects-->
     <section>
-        <div class=" mx-auto w-3/4">
+        <div class="">
             <h2 class="text-xl text-gray-900">Public Projekte</h2>
             <p class="text-gray-600">Aktuell veröffentlichte GitHub-Projekte</p>
             <div id="repos" class="flex justify-center flex-wrap"></div>
@@ -67,7 +64,7 @@
 
 <!--Websites-->
     <section>
-        <div class=" mx-auto w-1/2">
+        <div class="">
             <h2 class="text-xl text-gray-900">Webseiten</h2>
             <p class="text-gray-600">Aktuell erstellte Webseiten</p>
             <div id="sites" class="flex-wrap justify-center"></div>
@@ -76,7 +73,7 @@
 
 <!--Knowledge-->
     <section>
-        <div class=" mx-auto w-3/4">
+        <div class="">
             <h2 class="text-xl text-gray-900">Kenntnisse</h2>
             <div id="knowledge" class="flex justify-center flex-wrap"></div>
         </div>
@@ -92,7 +89,7 @@
     const reposView = document.getElementById("repos")
     const sitesView = document.getElementById("sites")
     const experiencesView = document.getElementById("experiences")
-    const educationsView = document.getElementById("education")
+    // const educationsView = document.getElementById("education")
 
     render();
 

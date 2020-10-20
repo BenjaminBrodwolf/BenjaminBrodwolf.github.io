@@ -40,6 +40,8 @@ const adjustLine = ([from, to]) => {
     line.style.left = left + 'px';
     line.style.height = H + 'px';
 
+    // const parent = getElement("expedu")
+    // parent.parentElement.prepend(line)
     from.parentElement.prepend(line)
 }
 

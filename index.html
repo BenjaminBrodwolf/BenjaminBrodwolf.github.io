@@ -42,13 +42,19 @@
         </div>
     </header>
 
-<!-- WorkExperience-->
-    <section style="height: var(--experience-height)">
-        <div class=" mx-auto w-full">
+<!-- Experience/Education-->
+    <section id="expedu" style="height: var(--experience-height)" class="flex flex-wrap relative">
+        <div class="w-1/2">
             <h2 class="text-xl text-gray-900">Berufserfahrung</h2>
             <div id="experiences" class="relative"></div>
         </div>
+
+        <div class="w-1/2">
+            <h2 class="text-xl text-gray-900">Ausbildung</h2>
+            <div id="education" class="relative"></div>
+        </div>
     </section>
+
 
 <!--Public Projects-->
     <section>
@@ -86,6 +92,7 @@
     const reposView = document.getElementById("repos")
     const sitesView = document.getElementById("sites")
     const experiencesView = document.getElementById("experiences")
+    const educationsView = document.getElementById("education")
 
     render();
 

@@ -16,34 +16,20 @@
         :root{
             --repo-width: 400px;
             --experience-height: 600px;
+            --background_color: #EDF2F7;
         }
 
         line {
             position: absolute;
-            width: 1px;
-            background-color: red;
+            width: 2px;
         }
 
-        .shadow-pop-tr {
-            animation: shadow-pop-tr 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) forwards;
-        }
-
-        @keyframes shadow-pop-tr {
-            0% {
-                box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
-                transform: translateX(0) translateY(0);
-            }
-            100% {
-                box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
-                transform: translateX(-8px) translateY(8px);
-            }
-        }
 
     </style>
     <script src="js/adjustLine.js"></script>
 </head>
 <body>
-<main class="flex flex-col bg-gray-200">
+<main class="flex flex-col" style="background-color: var(--background_color)">
 
     <header class="border-solid border-4 border-gray-700 p-5 m-5">
         <img class="inline-block solar-green"

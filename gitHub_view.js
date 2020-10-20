@@ -74,6 +74,56 @@ const myWebsites = [
     },
 ]
 
+
+const boxes = []
+const displayExperience = myWorksEperience => {
+    let exp = ""
+    myWorksEperience.forEach((e, i) => {
+        console.log(i)
+        const alignBox = (i % 2 == 0) ? "right" : "left"
+        const alignText = alignBox === "right" ? "left" : "right"
+
+        exp += `
+                <div id="box${i}" style="top: ${i*120}px; ${alignBox}: 20px" class="absolute bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 w-1/6 text-${alignText}">
+                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+                    <p class="text-gray-800">${e.employment}</p>
+                    <p class="text-gray-600">${e.dates} <br> ${e.location}          
+                    </p>
+                </div>
+          `
+        boxes.push("box"+i)
+    })
+    experiencesView.innerHTML = exp;
+    for (let i = 0; i < boxes.length-1; i++){
+        adjustLine(getElements(boxes[i], boxes[i+1]))
+    }
+
+    const height = distanceToTop(getElement(boxes[boxes.length - 1]))
+    console.log(height)
+    document.documentElement.style
+        .setProperty("--experience-height", height+"px" );
+}
+
+
+const displaySites = myWebsites => {
+    let websites = ""
+    myWebsites.forEach(e => {
+        websites += `
+            <div class="flex ">
+                <div class="md:flex-shrink-0 ">
+                    <img class="rounded-lg md:w-56" src="${e.logo}" alt="${e.name}">
+                </div>
+                <div class="mt-4 md:mt-0 md:ml-6">
+                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
+                    ${e.name}</a>
+                    <p class="mt-2 text-gray-600">${e.description}</p>
+                </div>
+            </div>
+          `
+    })
+    sitesView.innerHTML = websites;
+}
+
 const displayRepos = myRepos => {
     let repos = ""
     myRepos.forEach(e => {
@@ -108,53 +158,6 @@ const displayRepos = myRepos => {
     reposView.innerHTML = repos;
 }
 
-
-const boxes = []
-const displayExperience = myWorksEperience => {
-    let exp = ""
-    myWorksEperience.forEach((e, i) => {
-        console.log(i)
-        const alignBox = (i % 2 == 0) ? "right" : "left"
-        const alignText = alignBox === "right" ? "left" : "right"
-        exp += `
-                <div id="box${i}" style="top: ${i*120}px; ${alignBox}: 20px" class="absolute bg-teal-300 border border-red-800 w-2/6 text-${alignText}">
-                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
-                    <p class="text-gray-800">${e.employment}</p>
-                    <p class="text-gray-600">${e.dates} <br> ${e.location}          
-                    </p>
-                </div>
-          `
-        boxes.push("box"+i)
-    })
-    experiencesView.innerHTML = exp;
-    for (let i = 0; i < boxes.length-1; i++){
-        adjustLine(getElements(boxes[i], boxes[i+1]))
-    }
-
-    const heigth = distanceToTop(getElement(boxes[boxes.length - 1]))
-    console.log(heigth)
-    document.documentElement.style
-        .setProperty("--experience-height", heigth+"px" );
-}
-
-const displaySites = myWebsites => {
-    let websites = ""
-    myWebsites.forEach(e => {
-        websites += `
-            <div class="flex ">
-                <div class="md:flex-shrink-0 ">
-                    <img class="rounded-lg md:w-56" src="${e.logo}" alt="${e.name}">
-                </div>
-                <div class="mt-4 md:mt-0 md:ml-6">
-                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
-                    ${e.name}</a>
-                    <p class="mt-2 text-gray-600">${e.description}</p>
-                </div>
-            </div>
-          `
-    })
-    sitesView.innerHTML = websites;
-}
 
 const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()

@@ -30,6 +30,7 @@ const adjustLine = ([from, to]) => {
 
     const line = document.createElement("LINE")
     line.setAttribute("class", "line")
+    line.setAttribute("class", "bg-blue-200")
 
     const transforms = ["-webkit-transform", "-moz-transform", "-ms-transform", "-o-transform", "-transform"]
     transforms.forEach(trans =>

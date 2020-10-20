@@ -14,7 +14,7 @@
     }
 
     #div1{
-        left:200px;
+        right:200px;
         top:200px;
         width:50px;
         height:50px;
@@ -25,7 +25,15 @@
         width:50px;
         height:40px;
     }
-    .line{
+     #circle1{
+         width: 20px;
+         height: 20px;
+         border-radius: 10px;
+         position:absolute;
+         background-color: darkred;;
+
+     }
+    line{
         position:absolute;
         width:1px;
         background-color:red;
@@ -40,15 +48,22 @@
 <div id="content">
     <div id="div1" class="mydiv"></div>
     <div id="div2" class="mydiv"></div>
+    <div id="circle1"></div>
+
 </div>
 <script src="adjustLine.js"></script>
 <script>
+    const c = document.getElementById("circle1")
+    const cLeft = val => c.style.left = val + "px"
+    const cTop = val => c.style.top = val + "px"
 
+    const d1 = document.getElementById("div1")
+    const d2 = document.getElementById("div2")
 
-    adjustLine(
+    adjustLine([
         document.getElementById('div1'),
         document.getElementById('div2')
-    );
+    ]);
 </script>
 
 </body>

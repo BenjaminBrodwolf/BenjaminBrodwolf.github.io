@@ -3,7 +3,7 @@ const getElements = (...id) => id.map(e => getElement(e))
 const distanceToTop = el => window.pageYOffset + el.getBoundingClientRect().top
 
 
-const adjustLine = ([from, to]) => {
+const adjustLine = ([from, to], animationDelay = 0) => {
 
     const fT = from.offsetTop + from.offsetHeight / 2;
     const tT = to.offsetTop + to.offsetHeight / 2;
@@ -33,11 +33,20 @@ const adjustLine = ([from, to]) => {
 
     const transforms = ["-webkit-transform", "-moz-transform", "-ms-transform", "-o-transform", "-transform"]
     transforms.forEach(trans =>
-        line.style[trans] = 'rotate(' + ANG + 'deg)'
+        line.style[trans] = "rotate(" + ANG + "deg)"
     )
-    line.style.top = top + 'px';
-    line.style.left = left + 'px';
-    line.style.height = H + 'px';
+    // line.style.opacity = "0"
+    line.style.top = top + "px";
+    line.style.left = left + "px";
+    line.style.height = H + "px";
+
+    console.log(animationDelay)
+    if (animationDelay > 0){
+        console.log("looos" + animationDelay)
+        line.style.animation = `fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both`
+        // line.style.animationName = "fade-in"
+        // line.style.animationDuration = "1.2s"
+    }
 
     // const parent = getElement("expedu")
     // parent.parentElement.prepend(line)

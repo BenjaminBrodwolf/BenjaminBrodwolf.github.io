@@ -13,7 +13,7 @@
 
 
     <style>
-        :root{
+        :root {
             --repo-width: 400px;
             --experience-height: 600px;
             --background_color: #EDF2F7;
@@ -24,12 +24,35 @@
             width: 2px;
         }
 
+        .scale-in-hor-right {
+            animation: scale-in-hor-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+        }
+        @keyframes scale-in-hor-right {
+            0% {
+                transform: scaleX(0);
+                transform-origin: 100% 100%;
+                opacity: 1;
+            }
+            100% {
+                transform: scaleX(1);
+                transform-origin: 100% 100%;
+                opacity: 1;
+            }
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
     </style>
     <script src="js/adjustLine.js"></script>
 </head>
 <body style="background-color: var(--background_color)">
-<main class="mx-auto lg:w-3/4 flex flex-col" >
+<main class="mx-auto md:w-full lg:w-3/4 flex flex-col pb-32">
 
     <header class="flex-wrap md:flex lg:flex border-solid border-4 border-gray-700 p-5 m-2">
 
@@ -40,44 +63,45 @@
         <div class="inline-block pl-5">
             <div class=" font-mono text-5xl text-gray-900 font-black uppercase ">Benjamin <br> Brodwolf</div>
             <div class="font-mono">Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
-                Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.</div>
+                Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.
+            </div>
         </div>
     </header>
 
-<!-- Experience/Education-->
-    <section  style="height: var(--experience-height)" class="">
+    <!-- Experience/Education-->
+    <section style="height: var(--experience-height)" class="">
         <div class="w-full">
-            <h2 class="text-xl text-gray-900">Berufserfahrung / Ausbildung</h2>
+            <h2 class="text-xl text-gray-900 py-5">Berufserfahrung / Ausbildung</h2>
             <div id="experiences" class="relative"></div>
         </div>
     </section>
 
-
-<!--Public Projects-->
-    <section>
-        <div class="">
-            <h2 class="text-xl text-gray-900">Public Projekte</h2>
-            <p class="text-gray-600">Aktuell veröffentlichte GitHub-Projekte</p>
-            <div id="repos" class="flex justify-center flex-wrap"></div>
-        </div>
-    </section>
-
-<!--Websites-->
-    <section>
-        <div class="">
-            <h2 class="text-xl text-gray-900">Webseiten</h2>
-            <p class="text-gray-600">Aktuell erstellte Webseiten</p>
-            <div id="sites" class="flex-wrap justify-center"></div>
-        </div>
-    </section>
-
-<!--Knowledge-->
+    <!--Knowledge-->
     <section>
         <div class="">
             <h2 class="text-xl text-gray-900">Kenntnisse</h2>
             <div id="knowledge" class="flex justify-center flex-wrap"></div>
         </div>
     </section>
+
+    <!--Public Projects-->
+    <section>
+        <div class="">
+            <h2 class="text-xl text-gray-900 ">Public Projekte</h2>
+            <p class="text-gray-600 pb-5">Aktuelle public GitHub-Projekte</p>
+            <div id="repos" class="flex justify-center flex-wrap"></div>
+        </div>
+    </section>
+
+    <!--Websites-->
+    <section>
+        <div class="">
+            <h2 class="text-3xl text-gray-900 ">Webseiten</h2>
+            <p class="text-gray-600 pb-5">Aktuell erstellte Webseiten</p>
+            <div id="sites" class="flex-wrap justify-center"></div>
+        </div>
+    </section>
+
 
     <footer>
 
@@ -93,5 +117,5 @@
 
     render();
 
-  </script>
+</script>
 </html>

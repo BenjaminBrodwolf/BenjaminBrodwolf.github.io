@@ -79,6 +79,7 @@ const myWebsites = [
         "description": "Hanuman Yoga in Basel ist zentral gelegen und bietet einen flexiblen Stundenplan mit unterschiedlichen Yogastilen",
         "url": "https://hanumanyoga.ch",
         "logo": "images/hanumanyoga.png",
+        "background": "#73A5AD",
         "screencapture": "images/screencapture-hanumanyoga.png"
     },
     {
@@ -86,6 +87,7 @@ const myWebsites = [
         "description": "Ein Festival für Körper, Lust & Empowerment vom 23.10 – 25.10.2020 im HANUMAN YOGA STUDIO in Basel",
         "url": "https://mypleasurefestival.ch/",
         "logo": "https://mypleasurefestival.ch/wp-content/uploads/2020/09/Startseite_Clit-600x450.png",
+        "background": "white",
         "screencapture": "images/screencapture-mypleasurefestival.png"
     },
     {
@@ -93,6 +95,7 @@ const myWebsites = [
         "description": "Das Catering Fyyrstell-Velo bringt köstliches Essen (Burger, zwei weitere Klassiker in naher Zukunft) und eine Plattform für Austausch und Begegnung.",
         "url": "https://fyyrstell.ch/",
         "logo": "https://fyyrstell.ch/wp-content/uploads/2020/07/FYYRSTELL_Logo-Naturweiss_Vollst%C3%A4ndig.svg",
+        "background": "#3E3E3F",
         "screencapture": "images/screencapture-fyyrstell.png"
     },
     {
@@ -100,6 +103,7 @@ const myWebsites = [
         "description": "PSP Postgraduale Studiengänge in Psychotherapie",
         "url": "https://www.psp-basel.ch",
         "logo": "https://psp-basel.ch/images/logo/psp-color-rgb.svg",
+        "background": "#75B59F",
         "screencapture": "images/screencapture-psp-basel.png"
     },
 ]
@@ -113,18 +117,21 @@ const displayBox = expEdu => {
     //          [edu, exp, exp, exp, exp, edu, exp]
     const tops = [  0, 0.2, 1.2, 2.2, 3.2, 0, 2]
     // const lefts = [150, 450, 450, 450, 450, 950]
-    const lefts = [0, 20, 20, 20, 20, 45, 55]
+    const lefts = [-5, 15, 15, 15, 15, 45, 55]
 
     expEdu.forEach((e, i) => {
         console.log(i)
-        const alignBox = i == 0 ? "left" : "right" //(e.type === "edu") ? "left" : "right"
+        const alignBox = i === 0 ? "left" : "right" //(e.type === "edu") ? "left" : "right"
         const alignText = alignBox === "right" ? "left" : "right"
         console.log(alignBox)
         const rightShift = e.type === "edu" ? 50 : 500;
         console.log("top: " + top)
 
+        const animationDelay = i/2;
         exp += `
-                <div id="box${i}" style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 1}vw" class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
+                <div    id="box${i}" 
+                        style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 1}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
+                        class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
                     <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
                     <p class="text-gray-600">${e.dates} <br> ${e.location}
@@ -133,9 +140,11 @@ const displayBox = expEdu => {
           `
         boxes.push("box" + i)
     })
+
+
     experiencesView.innerHTML = exp;
     for (let i = 0; i < boxes.length - 1; i++) {
-        adjustLine(getElements(boxes[i], boxes[i + 1]))
+        adjustLine(getElements(boxes[i], boxes[i + 1]), i/2)
     }
 
     const height = distanceToTop(getElement(boxes[boxes.length - 3]))
@@ -143,45 +152,7 @@ const displayBox = expEdu => {
     document.documentElement.style
         .setProperty("--experience-height", height + "px");
 }
-// const displayBoxes = (list, view, name, padding = 1) => {
-//     const boxes = []
-//     let exp = ""
-//     list.forEach((e, i) => {
-//         console.log(i)
-//          exp += `
-//                 <box id="${name}${i}" style="top: ${i*padding*120}px; left: ${50+i*20}px" class="absolute bg-white bg-gradient-to-r from-blue-200 to-gray-200  text-left ">
-//                     <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
-//                     <p class="text-gray-800">${e.employment}</p>
-//                     <p class="text-gray-600">${e.dates} <br> ${e.location}
-//                     </p>
-//                 </box>
-//           `
-//         boxes.push(name + i.toString())
-//     })
-//     view.innerHTML = exp;
-//
-//     return boxes;
-// }
 
-
-const displaySites = myWebsites => {
-    let websites = ""
-    myWebsites.forEach(e => {
-        websites += `
-            <div class="flex ">
-                <div class="md:flex-shrink-0 ">
-                    <img class="rounded-lg md:w-56" src="${e.logo}" alt="${e.name}">
-                </div>
-                <div class="mt-4 md:mt-0 md:ml-6">
-                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
-                    ${e.name}</a>
-                    <p class="mt-2 text-gray-600">${e.description}</p>
-                </div>
-            </div>
-          `
-    })
-    sitesView.innerHTML = websites;
-}
 
 const displayRepos = myRepos => {
     let repos = ""
@@ -217,6 +188,24 @@ const displayRepos = myRepos => {
     reposView.innerHTML = repos;
 }
 
+const displaySites = myWebsites => {
+    let websites = ""
+    myWebsites.forEach(e => {
+        websites += `
+            <div class="flex mt-5 ">
+                <div class="md:flex-shrink-0 p-2 " style="background-color: ${e.background}">
+                    <img class="rounded-lg w-56" src="${e.logo}" alt="${e.name}">
+                </div>
+                <div class="mt-4 md:mt-0 md:ml-6">
+                    <a href="${e.url}" class="block mt-1 text-2xl leading-tight font-semibold text-gray-900 hover:underline">
+                    ${e.name}</a>
+                    <p class="mt-2 text-gray-600">${e.description}</p>
+                </div>
+            </div>
+          `
+    })
+    sitesView.innerHTML = websites;
+}
 const drawBoxLines = boxes => {
     for (let i = 0; i < boxes.length - 1; i++) {
         adjustLine(getElements(boxes[i], boxes[i + 1]))

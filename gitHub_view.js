@@ -1,64 +1,3 @@
-const displayRepos = myRepos => {
-    let repos = ""
-    myRepos.forEach(e => {
-        repos += `
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-gray-300 w-2/5 m-2 hover:shadow-2xl">
-                <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
-                <div class="px-6 py-4 relative">
-                    <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>
-                    <div class="font-bold text-xl mb-2">${e.name}</div>
-                    <p class="text-gray-600 text-xs uppercase font-semibold tracking-wide">${e.languages}</p>
-                    <p class="text-gray-700 text-base pt-5">${e.description}</p>
-          `
-        if (e.homepage.length > 0) {
-            repos += `
-                    <div class="flex justify-center items-center">
-                        <a href="${e.homepage}"
-                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
-                            <span>Homepage</span>
-                            <svg class="fill-current w-8 h-8 mr-2 pl-1" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 50 50"
-                                 enable-background="new 0 0 50 50">
-                                <path d="M 12 6 C 10.3 6 9 7.3 9 9 L 9 39 L 11 37 L 11 9 C 11 8.4 11.4 8 12 8 L 38 8 C 38.6 8 39 8.4 39 9 L 39 41 C 39 41.6 38.6 42 38 42 L 16 42 L 14 44 L 38 44 C 39.7 44 41 42.7 41 41 L 41 9 C 41 7.3 39.7 6 38 6 L 12 6 z M 16 25 L 16 27 L 24.59375 27 L 9.09375 42.5 L 10.5 43.90625 L 26 28.40625 L 26 37 L 28 37 L 28 26 L 28 25 L 27 25 L 16 25 z"/>
-                            </svg>
-                        </a>
-                    </div>                
-                `
-        }
-        repos += `
-                </div>
-            </div>`
-    })
-    view.innerHTML = repos;
-}
-// <div class="mt-4 md:mt-0 md:ml-6">
-//     <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">
-//         ${e.name}</a>
-//     <p class="mt-2 text-gray-600">${e.description}</p>
-// </div>
-const boxes = []
-const displayExperience = myWorksEperience => {
-    let exp = ""
-    myWorksEperience.forEach((e, i) => {
-        console.log(i)
-        const alignBox = (i % 2 == 0) ? "right" : "left"
-        const alignText = alignBox === "right" ? "left" : "right"
-        exp += `
-                <div id="box${i}" style="top: ${i*120}px; ${alignBox}: 20px" class="absolute bg-teal-300 border border-red-800 w-2/6 text-${alignText}">
-                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
-                    <p class="text-gray-800">${e.employment}</p>
-                    <p class="text-gray-600">${e.dates} <br> ${e.location}          
-                    </p>
-                </div>
-          `
-        boxes.push("box"+i)
-    })
-    experiences.innerHTML = exp;
-    for (let i = 0; i < boxes.length-1; i++){
-        adjustLine(getElements(boxes[i], boxes[i+1]))
-    }
-}
-
 const myWorkExperience = [
     {
         "name": "Mermet+Burckhardt AG",
@@ -96,7 +35,7 @@ const myWorkExperience = [
         "url": "url"
     },
     {
-        "name": "Fachhochschule Nordwestschweiz FHNW",
+        "name": "Fachhochschule FHNW",
         "employment": "Bachelor-Student",
         "dates": "September 2017 - Present",
         "location": "Brugg/Windisch",
@@ -104,7 +43,6 @@ const myWorkExperience = [
     },
 
 ]
-
 const myWebsites = [
     {
         "name": "Hanuman Yoga Studio",
@@ -135,6 +73,70 @@ const myWebsites = [
         "screencapture": "images/screencapture-psp-basel.png"
     },
 ]
+
+const displayRepos = myRepos => {
+    let repos = ""
+    myRepos.forEach(e => {
+        repos += `
+            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-gray-300 w-2/5 m-2 hover:shadow-2xl">
+                <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
+                <div class="px-6 py-4 relative">
+                    <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>
+                    <div class="font-bold text-xl mb-2">${e.name}</div>
+                    <p class="text-gray-600 text-xs uppercase font-semibold tracking-wide">${e.languages}</p>
+                    <p class="text-gray-700 text-base pt-5">${e.description}</p>
+          `
+        if (e.homepage.length > 0) {
+            repos += `
+                    <div class="flex justify-center items-center">
+                        <a href="${e.homepage}"
+                                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
+                            <span>Homepage</span>
+                            <svg class="fill-current w-8 h-8 mr-2 pl-1" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 50 50"
+                                 enable-background="new 0 0 50 50">
+                                <path d="M 12 6 C 10.3 6 9 7.3 9 9 L 9 39 L 11 37 L 11 9 C 11 8.4 11.4 8 12 8 L 38 8 C 38.6 8 39 8.4 39 9 L 39 41 C 39 41.6 38.6 42 38 42 L 16 42 L 14 44 L 38 44 C 39.7 44 41 42.7 41 41 L 41 9 C 41 7.3 39.7 6 38 6 L 12 6 z M 16 25 L 16 27 L 24.59375 27 L 9.09375 42.5 L 10.5 43.90625 L 26 28.40625 L 26 37 L 28 37 L 28 26 L 28 25 L 27 25 L 16 25 z"/>
+                            </svg>
+                        </a>
+                    </div>                
+                `
+        }
+        repos += `
+                </div>
+            </div>`
+    })
+    reposView.innerHTML = repos;
+}
+
+
+const boxes = []
+const displayExperience = myWorksEperience => {
+    let exp = ""
+    myWorksEperience.forEach((e, i) => {
+        console.log(i)
+        const alignBox = (i % 2 == 0) ? "right" : "left"
+        const alignText = alignBox === "right" ? "left" : "right"
+        exp += `
+                <div id="box${i}" style="top: ${i*120}px; ${alignBox}: 20px" class="absolute bg-teal-300 border border-red-800 w-2/6 text-${alignText}">
+                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+                    <p class="text-gray-800">${e.employment}</p>
+                    <p class="text-gray-600">${e.dates} <br> ${e.location}          
+                    </p>
+                </div>
+          `
+        boxes.push("box"+i)
+    })
+    experiencesView.innerHTML = exp;
+    for (let i = 0; i < boxes.length-1; i++){
+        adjustLine(getElements(boxes[i], boxes[i+1]))
+    }
+
+    const heigth = distanceToTop(getElement(boxes[boxes.length - 1]))
+    console.log(heigth)
+    document.documentElement.style
+        .setProperty("--experience-height", heigth+"px" );
+}
+
 const displaySites = myWebsites => {
     let websites = ""
     myWebsites.forEach(e => {
@@ -151,12 +153,11 @@ const displaySites = myWebsites => {
             </div>
           `
     })
-    sites.innerHTML = websites;
+    sitesView.innerHTML = websites;
 }
 
-const start = async () => {
+const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()
-    console.log(myRepos)
     displayRepos(myRepos)
     displaySites(myWebsites)
     displayExperience(myWorkExperience)

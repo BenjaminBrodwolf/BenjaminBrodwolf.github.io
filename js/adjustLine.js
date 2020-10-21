@@ -1,6 +1,4 @@
-const getElement = id => document.getElementById(id);
-const getElements = (...id) => id.map(e => getElement(e))
-const distanceToTop = el => window.pageYOffset + el.getBoundingClientRect().top
+
 
 
 const adjustLine = ([from, to], animationDelay = 0) => {
@@ -53,12 +51,3 @@ const adjustLine = ([from, to], animationDelay = 0) => {
     from.parentElement.prepend(line)
 }
 
-window.addEventListener("resize", () => {
-    if(boxes){
-        const allLines = document.querySelectorAll("LINE")
-        allLines.forEach(l => l.remove())
-        for (let i = 0; i < boxes.length-1; i++){
-            adjustLine(getElements(boxes[i], boxes[i+1]))
-        }
-    }
-})

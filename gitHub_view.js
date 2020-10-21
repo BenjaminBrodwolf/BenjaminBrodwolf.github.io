@@ -92,31 +92,31 @@ const myWebsites = [
     },
 ]
 
-const boxes = []
 
 const skills = {
     "JavaScript": "100",
     "Java": "90",
     "Python": "85",
+    "Haskell": "66",
     "HTML": "95",
     "CSS": "93",
     "C#": "70",
-    "React": "80",
-    "Angular": "40",
-    "Wordpress": "65",
-    "Figma": "80",
-    "ArchiCAD / VectorWorks": "30",
-    "Spring Framework": "50",
-    "Blender": "30",
+    "Spring Framework": "55",
+    "React": "75",
+    "Angular": "45",
     "Objektorientierte Programmierung": "85",
     "Funktionale Programmierung": "90",
+    "Wordpress": "65",
+    "Figma": "80",
     "Internet of Things": "60",
     "Machine Learning": "60",
     "Natural Language Processing": "55",
-    "Firebase": "34",
+    "ArchiCAD / VectorWorks": "35",
+    "Unity3D": "40",
+    "Arduino": "34",
 }
 
-
+const boxes = []
 const displayExperiences = experiences => {
     let exp = ""
     //          [edu, exp, exp, exp, exp, edu, exp]
@@ -133,7 +133,7 @@ const displayExperiences = experiences => {
                 <div    id="box${i}" 
                         style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
                         class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
-                    <a href="${e.address}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
                     <p class="text-gray-600">${e.dates} <br> ${e.location}
                     </p>
@@ -178,7 +178,7 @@ const displayRepos = myRepos => {
           `
         if (e.homepage.length > 0) {
             repos += `
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center animate-pulse">
                         <a href="${e.homepage}"
                                 class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
                             <span>Homepage</span>
@@ -216,11 +216,18 @@ const displaySites = myWebsites => {
     })
     sitesView.innerHTML = websites;
 }
-const drawBoxLines = boxes => {
-    for (let i = 0; i < boxes.length - 1; i++) {
-        adjustLine(getElements(boxes[i], boxes[i + 1]))
+
+
+window.addEventListener("resize", () => {
+    if(boxes){
+        const allLines = document.querySelectorAll("LINE")
+        allLines.forEach(l => l.remove())
+        for (let i = 0; i < boxes.length-1; i++){
+            adjustLine(getElements(boxes[i], boxes[i+1]))
+        }
     }
-}
+})
+
 
 const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()

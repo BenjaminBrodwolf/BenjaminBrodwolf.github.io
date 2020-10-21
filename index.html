@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Benjamin Brodwolf</title>
     <meta name="description" content="Portfolio Webseite von Benjamin Brodwolf"/>
     <meta name="author" content="Benjamin Brodwolf"/>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --repo-width: 400px;
             --experience-height: 600px;
             --background_color: #EDF2F7;
         }
@@ -22,21 +21,13 @@
             width: 2px;
         }
 
-
         @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% {   opacity: 0; }
+            100% { opacity: 1; }
         }
 
         #skills {
             font-family: 'Inconsolata', monospace;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: #304FFE;
         }
 
@@ -52,25 +43,49 @@
             display: inline-block;
             vertical-align: middle;
         }
+
+        .page-background {
+            background-color: var(--background_color);
+
+            /*pinky circle*/
+            background: rgb(252, 228, 236);
+            background: radial-gradient(circle, rgba(252, 228, 236, 1) 20%, rgba(255, 255, 255, 0) 80%);
+        }
+
     </style>
+    <script src="js/utilizes.js"></script>
     <script src="js/adjustLine.js"></script>
 </head>
-<body style="background-color: var(--background_color)">
-<main class="mx-auto md:w-full md:px-10 lg:w-3/4 flex flex-col pb-32">
+<body class="page-background">
 
-    <header class="flex-wrap md:flex lg:flex border-solid border-4 border-gray-700 p-5 m-2">
+<header class="flex-wrap md:flex lg:flex border-solid border-4 border-gray-700 p-5 m-2">
 
-        <img class="rounded-lg  lg:w-1/6 sm:w-1/2"
-             src="https://avatars2.githubusercontent.com/u/32330119?s=460&u=28e80484bb6926adbb110b302bc7a3bd86162273&v=4"
-             alt="Benjamin Brodwolf Profil-Foto">
+    <img class="rounded-lg  lg:w-1/6 sm:w-1/2"
+         src="https://avatars2.githubusercontent.com/u/32330119?s=460&u=28e80484bb6926adbb110b302bc7a3bd86162273&v=4"
+         alt="Benjamin Brodwolf Profil-Foto">
 
-        <div class="inline-block pl-5">
-            <div class=" font-mono text-5xl text-gray-900 font-black uppercase ">Benjamin <br> Brodwolf</div>
-            <div class="font-mono">Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
-                Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.
-            </div>
+    <div class="pl-5 flex flex-col justify-between">
+        <div class=" font-mono text-5xl text-gray-900 font-black uppercase ">Benjamin <br> Brodwolf</div>
+        <div class="font-mono">Früher Architekt und Zeichner von Gebäuden und Bau-Plänen. <br>
+            Heute Softwarearchitekt und Designer von Programmen und WebApplikationen.
         </div>
-    </header>
+        <div>
+            <a href="https://www.linkedin.com/in/benjamin-brodwolf">
+                <svg class="h-12 w-12 float-left mr-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382 382">
+                    <path d="M347.445 0H34.555C15.471 0 0 15.471 0 34.555v312.889C0 366.529 15.471 382 34.555 382h312.889C366.529 382 382 366.529 382 347.444V34.555C382 15.471 366.529 0 347.445 0zM118.207 329.844c0 5.554-4.502 10.056-10.056 10.056H65.345c-5.554 0-10.056-4.502-10.056-10.056V150.403c0-5.554 4.502-10.056 10.056-10.056h42.806c5.554 0 10.056 4.502 10.056 10.056v179.441zM86.748 123.432c-22.459 0-40.666-18.207-40.666-40.666S64.289 42.1 86.748 42.1s40.666 18.207 40.666 40.666-18.206 40.666-40.666 40.666zM341.91 330.654a9.247 9.247 0 01-9.246 9.246H286.73a9.247 9.247 0 01-9.246-9.246v-84.168c0-12.556 3.683-55.021-32.813-55.021-28.309 0-34.051 29.066-35.204 42.11v97.079a9.246 9.246 0 01-9.246 9.246h-44.426a9.247 9.247 0 01-9.246-9.246V149.593a9.247 9.247 0 019.246-9.246h44.426a9.247 9.247 0 019.246 9.246v15.655c10.497-15.753 26.097-27.912 59.312-27.912 73.552 0 73.131 68.716 73.131 106.472v86.846z"
+                          fill="#0077b7"/>
+                </svg>
+            </a>
+            <a href="https://github.com/benjaminbrodwolf">
+                <svg class="h-12 w-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="mx-auto md:w-full md:px-10 lg:w-3/4 flex flex-col pb-32 p-3">
 
     <!-- Experience/Education-->
     <section style="height: var(--experience-height)">
@@ -83,15 +98,15 @@
     <!--Knowledge-->
     <section class="pb-16">
         <h2 class="text-xl text-gray-900">Kenntnisse</h2>
-        <div id="skills" style="width: 990px" class="mx-auto">
+        <div id="skills" class="mx-auto flex flex-wrap">
         </div>
     </section>
 
     <!--Public Projects-->
     <section class="pb-24">
-        <h2 class="text-xl text-gray-900 ">Public Projekte</h2>
-        <p class="text-gray-600 pb-5">Aktuelle public GitHub-Projekte</p>
-        <div id="repos" class="flex justify-center flex-wrap"></div>
+        <h2 class="text-xl text-gray-900 ">Öffentliche Projekte</h2>
+        <p class="text-gray-600 pb-5">Aktuellste public GitHub-Projekte</p>
+        <div id="repos" class="flex justify-between flex-wrap"></div>
     </section>
 
     <!--Websites-->
@@ -101,23 +116,10 @@
         <div id="sites" class="flex-wrap justify-center"></div>
     </section>
 
-    <footer>
-    </footer>
 </main>
-<div class="absolute w-screen"
-     style="
-    margin: 0px;
-    padding: 0px;
-    pointer-events: none;
-    position: absolute;
-    height: 400vh;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -10000;
-    background: rgb(252,228,236);
-    background: radial-gradient(circle, rgba(252,228,236,1) 20%, rgba(255,255,255,0) 80%);"
-></div>
+<footer>
+    <div class="text-gray-600 p-5 italic text-center">by Benjamin Brodwolf - Oktober 2020</div>
+</footer>
 </body>
 
 <script src="gitHub_view.js"></script>

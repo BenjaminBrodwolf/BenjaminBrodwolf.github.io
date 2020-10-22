@@ -3,7 +3,7 @@ const myExperiences = [
         "type": "edu",
         "name": "Allgemeine Gewerbeschule Basel",
         "employment": "Ausbildung, Fachzeichner Architektur",
-        "dates": "September 2007 - 2011",
+        "dates": "2007 - 2011",
         "location": "Basel",
         "url": "https://www.agsbs.ch/"
     },
@@ -22,6 +22,14 @@ const myExperiences = [
         "dates": "2011 - 2014",
         "location": "Basel",
         "url": "https://www.ferrara-architekten.ch/"
+    },
+    {
+        "type": "travel",
+        "name": "Weltreise",
+        "employment": "",
+        "dates": "2014 - 2015",
+        "location": "Südostasien, Indien, SriLanka",
+        "url": "https://de.wikipedia.org/wiki/S%C3%BCdostasien"
     },
     {
         "type": "work",
@@ -43,7 +51,7 @@ const myExperiences = [
         "type": "edu",
         "name": "Fachhochschule Nordwestschweiz FHNW",
         "employment": "Bachelor of Applied Science <br>Informatik Profilierung iCompetence",
-        "dates": "September 2017 - 2021",
+        "dates": "2017 - 2021",
         "location": "Brugg/Windisch",
         "url": "https://www.fhnw.ch/"
     },
@@ -95,14 +103,14 @@ const myWebsites = [
 
 const skills = {
     "JavaScript": "100",
-    "Java": "90",
+    "Java": "93",
     "Python": "85",
     "Haskell": "66",
     "HTML": "95",
     "CSS": "93",
     "C#": "70",
     "Spring Framework": "55",
-    "React": "75",
+    "React": "77",
     "Angular": "45",
     "Objektorientierte Programmierung": "85",
     "Funktionale Programmierung": "90",
@@ -120,19 +128,22 @@ const boxes = []
 const displayExperiences = experiences => {
     let exp = ""
     //          [edu, exp, exp, exp, exp, edu, exp]
-    const tops = [  0, 1, 2, 3, 4, 0, 2]
-    const lefts = [-5, 5, 5, 5, 5, 30, 35]
+    const tops = [  0, 1, 2, 2.5 ,3, 4, 0, 2]
+    const lefts = [-5, 5, 5, -12 , 5, 5, 30, 35]
 
     experiences.forEach((e, i) => {
         console.log(i)
         const alignBox = i === 0 ? "left" : "right" //(e.type === "edu") ? "left" : "right"
         const alignText = alignBox === "right" ? "left" : "right"
         const animationDelay = i/2;
+        const bgColor = e.type === "edu" ? "from-yellow-200 to-transparent" :
+                        e.type === "work" ? "from-blue-200 to-transparent"   :
+                                           "from-orange-200 to-transparent"
 
         exp += `
                 <div    id="box${i}" 
                         style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
-                        class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} from-blue-200 to-gray-200 text-${alignText}">
+                        class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox.charAt(0)} ${bgColor}  text-${alignText}">
                     <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
                     <p class="text-gray-600">${e.dates} <br> ${e.location}
@@ -168,7 +179,7 @@ const displayRepos = myRepos => {
     let repos = ""
     myRepos.forEach(e => {
         repos += `
-            <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-gray-300 w-2/5 m-2 hover:shadow-2xl">
+            <div class="w-3/4  md:w-2/5 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
                 <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
                 <div class="px-6 py-4 relative">
                     <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>

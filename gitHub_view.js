@@ -154,7 +154,6 @@ const displayExperiences = experiences => {
         boxes.push("box" + i)
     })
 
-
     experiencesView.innerHTML = exp;
     for (let i = 0; i < boxes.length - 1; i++) {
         adjustLine(getElements(boxes[i], boxes[i + 1]), i/2)
@@ -179,7 +178,7 @@ const displayRepos = myRepos => {
     let repos = ""
     myRepos.forEach(e => {
         repos += `
-            <div class="w-3/4  md:w-2/5 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
+            <div class="w-3/4  lg:w-2/5 xl:w-1/4 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
                 <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
                 <div class="px-6 py-4 relative">
                     <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>
@@ -236,6 +235,11 @@ window.addEventListener("resize", () => {
         for (let i = 0; i < boxes.length-1; i++){
             adjustLine(getElements(boxes[i], boxes[i+1]))
         }
+
+        const height = distanceToTop(getElement(boxes[boxes.length - 3]))
+        console.log(height)
+        document.documentElement.style
+            .setProperty("--experience-height", height + "px");
     }
 })
 

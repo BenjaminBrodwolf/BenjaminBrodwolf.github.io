@@ -166,7 +166,7 @@ const displayExperiences = experiences => {
 const displayWordCloud = () => {
     let cloud = "<ul>"
     for (let [key, value] of Object.entries(skills)) {
-        cloud += `<li class="" style="font-size: ${value * 3}%">'${key}'</li>`
+        cloud += `<li class="" style="font-size: ${value * (screen.width < 430 ? 2 : 3)}%">'${key}'</li>`
     }
     cloud += "</ul>"
     skillsView.innerHTML = cloud

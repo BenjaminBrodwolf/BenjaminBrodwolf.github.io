@@ -159,9 +159,6 @@ const displayExperiences = experiences => {
         boxes.push("box" + i)
     })
 
-    const youEnginneringBox = getElement(boxes[boxes.length-1])
-
-
     experiencesView.innerHTML = exp;
     for (let i = 0; i < boxes.length - 1; i++) {
         adjustLine(getElements(boxes[i], boxes[i + 1]), i/2)

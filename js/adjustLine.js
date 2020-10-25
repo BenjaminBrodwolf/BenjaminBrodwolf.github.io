@@ -35,7 +35,6 @@ const adjustLine = ([from, to], animationDelay = 0) => {
     line.style.left = left + "px";
     line.style.height = H + "px";
 
-    console.log(animationDelay)
     if (animationDelay > 0){
         line.style.animation = `fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both`
 

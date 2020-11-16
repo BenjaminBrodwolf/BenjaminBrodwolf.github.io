@@ -50,19 +50,27 @@ const myExperiences = [
     {
         "type": "edu",
         "name": "Fachhochschule Nordwestschweiz FHNW",
-        "employment": "Bachelor of Applied Science <br>Informatik Profilierung iCompetence",
+        "employment": "Bachelor of Applied Science<br> Schwerpunkt Applikationsentwicklung<br>Informatik Profilierung iCompetence",
         "dates": "2017 - 2021",
         "location": "Brugg/Windisch",
         "url": "https://www.fhnw.ch/"
     },
     {
         "type": "work",
-        "name": "youEngineering AG",
+        "name": "",
         "employment": "Software Engineer",
         "dates": "2021 - 20XX",
-        "location": "Basel",
-        "url": "https://youengineering.com/"
+        "location": "Basel/Schweiz",
+        "url": ""
     }
+    // {
+    //     "type": "work",
+    //     "name": "youEngineering AG",
+    //     "employment": "Software Engineer",
+    //     "dates": "2021 - 20XX",
+    //     "location": "Basel",
+    //     "url": "https://youengineering.com/"
+    // }
 ]
 
 const myWebsites = [
@@ -116,7 +124,7 @@ const skills = {
     "Haskell": "66",
     "HTML": "95",
     "CSS": "93",
-    "C#": "70",
+    "C#": "77",
     "SQL": "65",
     "REST": "66",
     "Spring Framework": "62",
@@ -129,6 +137,7 @@ const skills = {
     "Internet of Things": "60",
     "Machine Learning": "60",
     "Natural Language Processing": "55",
+    "Tailwind": "55",
     "Solidity": "45",
     "Unity3D": "40",
     "Arduino": "34",

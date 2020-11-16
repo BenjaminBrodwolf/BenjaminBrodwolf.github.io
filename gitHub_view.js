@@ -118,6 +118,7 @@ const skills = {
     "CSS": "93",
     "C#": "70",
     "SQL": "65",
+    "REST": "66",
     "Spring Framework": "62",
     "React": "77",
     "Angular": "45",
@@ -128,6 +129,7 @@ const skills = {
     "Internet of Things": "60",
     "Machine Learning": "60",
     "Natural Language Processing": "55",
+    "Solidity": "45",
     "Unity3D": "40",
     "Arduino": "34",
 }
@@ -166,9 +168,6 @@ const displayExperiences = experiences => {
 
         boxes.push("box" + i)
     })
-
-    const youEnginneringBox = getElement(boxes[boxes.length-1])
-
 
     experiencesView.innerHTML = exp;
     for (let i = 0; i < boxes.length - 1; i++) {

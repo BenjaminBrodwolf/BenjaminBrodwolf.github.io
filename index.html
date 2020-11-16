@@ -7,8 +7,8 @@
     <meta name="author" content="Benjamin Brodwolf"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -43,6 +43,10 @@
             background: rgb(252, 228, 236);
             background: radial-gradient(circle, rgba(252, 228, 236, 1) 20%, rgba(255, 255, 255, 0) 47%);
         }
+        .bg-gradient-to-l {
+            /*stupid safari*/
+            /*background-image: -webkit-linear-gradient(right, #fefcbf, transparent);*/
+        }
 
     </style>
     <script src="js/utilizes.js"></script>
@@ -50,9 +54,9 @@
 </head>
 <body class="page-background">
 
-<header class="flex flex-wrap justify-center border-solid border-t-4 border-b-4 border-gray-700 p-5 m-2 w-full" >
+<header class="flex flex-wrap items-start justify-center border-solid border-t-4 border-b-4 border-gray-700 p-5 m-2 w-full" >
 
-    <img class="rounded-lg w-1/2 lg:w-1/6"
+    <img class="rounded-lg h-32 w-auto h-auto lg:w-1/6"
          src="images/Profilfoto.jpg"
          alt="Benjamin Brodwolf Profil-Foto">
 

@@ -91,6 +91,14 @@ const myWebsites = [
         "screencapture": "images/screencapture-fyyrstell.png"
     },
     {
+        "name": "Digesan® Fibre",
+        "description": "Webseite für das Produkt: Digesan® Fibre bei Darmbeschwerden und Reizdarmsyndrom",
+        "url": "https://digesan.ch/",
+        "logo": "https://digesan.ch/wp-content/uploads/2020/11/Logo_Digesan_WEB.svg",
+        "background": "#f5f5f5",
+        "screencapture": ""
+    },
+    {
         "name": "PSP - Basel",
         "description": "PSP Postgraduale Studiengänge in Psychotherapie",
         "url": "https://www.psp-basel.ch",
@@ -185,7 +193,7 @@ const displayRepos = myRepos => {
     let repos = ""
     myRepos.forEach(e => {
         repos += `
-            <div class="w-3/4  lg:w-2/5 xl:w-1/4 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
+            <div class="w-3/4 lg:w-2/5 xl:w-1/4 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
                 <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
                 <div class="px-6 py-4 relative">
                     <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>

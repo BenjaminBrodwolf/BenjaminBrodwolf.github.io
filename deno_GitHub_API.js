@@ -3,8 +3,7 @@ const mattWolfGitHubReposUrl = "https://api.github.com/users/mattwolf-corporatio
 
 const fetchGH = async url => {
     try {
-        const response = await fetch(url
-            ,
+        const response = await fetch(url,
             {
                 headers: {
                     "Authorization": "793bdb44ad75dd618f8ea84660034dadddffc9ce"
@@ -19,14 +18,14 @@ const fetchGH = async url => {
 
 const loadGitHubRepo = async url => {
 
-    const result = await fetchGH(url) //await (await fetch(url)).json() //await getJsonData(url)
+    const result = await fetchGH(url)
 
-    let notForkedRepos = result.filter(e => e.fork == false)
+    let notForkedRepos = result.filter(e => e.fork === false)
 
     let myRepos = []
     for (const repo of notForkedRepos) {
         const contentsUrl = repo.contents_url.replace("{+path}", "")
-        const repoContents = await fetchGH(contentsUrl) // await (await fetch(contentsUrl)).json() //await getJsonData(contents)
+        const repoContents = await fetchGH(contentsUrl)
 
         const repoImage = repoContents.find(items => items.name === "repoImage.png")
         if (repoImage) {
@@ -42,15 +41,12 @@ const loadGitHubRepo = async url => {
             })
         }
     }
-
     return myRepos
 }
 
 const myRepos = await loadGitHubRepo(myGitHubReposUrl)
 const ip5 = await loadGitHubRepo(mattWolfGitHubReposUrl)
-
 const allRepos = [...myRepos, ...ip5].reverse()
-
 
 console.log(allRepos)
 await Deno.writeTextFile("myGitHubs.json", JSON.stringify(allRepos))

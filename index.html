@@ -12,7 +12,7 @@
 
     <style>
         :root {
-            --experience-height: 600px;
+            --experience-height: 500px;
         }
 
         line {
@@ -20,10 +20,7 @@
             width: 2px;
         }
 
-        @keyframes fade-in {
-            0% {   opacity: 0; }
-            100% { opacity: 1; }
-        }
+
 
         ul {
             list-style: none;
@@ -43,9 +40,36 @@
             background: rgb(252, 228, 236);
             background: radial-gradient(circle, rgba(252, 228, 236, 1) 20%, rgba(255, 255, 255, 0) 47%);
         }
+
         .bg-gradient-to-l {
             /*stupid safari*/
             /*background-image: -webkit-linear-gradient(right, #fefcbf, transparent);*/
+        }
+        .fade-in{
+            -webkit-animation: fade-in 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+            animation: fade-in 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+        }
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slide-left {
+            animation: slide-left 0.8s ease-in both;
+        }
+        @keyframes slide-left {
+            0% {
+                transform: translateX(200px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
     </style>
@@ -54,13 +78,13 @@
 </head>
 <body class="page-background overflow-x-hidden">
 
-<header class="flex flex-wrap items-start justify-center border-solid border-t-4 border-b-4 border-gray-700 p-5 m-2 w-full" >
+<header class="flex flex-wrap items-start justify-center border-solid border-t-4 border-b-4 border-gray-700 p-5 m-2 w-full">
 
-    <img class="rounded-lg h-32 w-auto h-auto lg:w-1/6"
+    <img class="fade-in rounded-lg  h-32 w-auto h-auto lg:w-1/6 shadow-2xl"
          src="images/Profilfoto.jpg"
          alt="Benjamin Brodwolf Profil-Foto">
 
-    <div class="pl-5 flex flex-col justify-between text-center lg:text-left">
+    <div class="slide-left pl-5 flex flex-col justify-between text-center lg:text-left ">
         <div class=" font-mono text-5xl text-gray-900 font-black uppercase leading-none">Benjamin <br> Brodwolf</div>
         <div class="font-mono">Früher Architekt und Zeichner von Gebäuden und Bauplänen. <br>
             Heute Software-Architekt und Designer von Programmen und WebApplikationen.

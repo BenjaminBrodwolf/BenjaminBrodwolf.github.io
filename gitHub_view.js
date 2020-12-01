@@ -132,7 +132,7 @@ const skills = {
     "Angular": "45",
     "Funktionale Programmierung": "90",
     "Objektorientierte Programmierung": "85",
-    "Wordpress": "65",
+    "Wordpress": "70",
     "Figma": "80",
     "Internet of Things": "60",
     "Machine Learning": "60",
@@ -147,16 +147,17 @@ const boxes = []
 const displayExperiences = experiences => {
     let exp = ""
     //          [edu, exp, exp, travel, exp, exp, edu, exp]
-    const tops = [  0, 1, 2, 2.7 ,3, 4, 0, 2]
-    const lefts = [-5, 5, 5, -15 , 5, 5, 30, 35]
+    const tops = [0, 1, 2, 2.7, 3, 4, 0, 2]
+    const lefts = [-5, 5, 5, -15, 5, 5, 30, 35]
+
+    const animationDelay = i => (i + 5) / 2;
 
     experiences.forEach((e, i) => {
         const alignBox = (e.type === "work") ? "r" : "l"
         const alignText = alignBox === "r" ? "left" : "right"
-        const animationDelay = i/2;
         const bgColor = e.type === "edu" ? "from-yellow-200 to-transparent" :
-                        e.type === "work" ? "from-blue-200 to-transparent"   :
-                                           "from-orange-200 to-transparent"
+            e.type === "work" ? "from-blue-200 to-transparent" :
+                "from-orange-200 to-transparent"
 
         const questionmark = `<svg class="absolute transform transform -translate-x-6 -translate-y-56 scale-50 overflow-hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="450" height="450">
                                  <path style="fill:#ffa500" d="M 273.79665,278.39483 L 176.01526,278.41797 C 176.01516,262.63035 180.66722,249.81298 184.24805,239.96582 C 187.82867,230.11898 193.15907,221.12648 200.23926,212.98828 C 207.31921,204.85046 223.22902,190.52755 247.96875,170.01953 C 261.15216,159.27758 267.74395,149.43059 267.74414,140.47852 C 267.74395,131.52696 265.0991,124.56896 259.80957,119.60449 C 254.51968,114.64058 246.50374,112.15849 235.76172,112.1582 C 224.20558,112.15849 214.64342,115.98336 207.0752,123.63281 C 199.50672,131.28282 194.6646,144.62916 192.54883,163.67188 L 97.822266,151.95313 C 101.07745,117.12268 113.73206,89.087225 135.78613,67.84668 C 157.84009,46.606799 191.65353,35.986692 237.22656,35.986328 C 272.70814,35.986692 301.35395,43.392284 323.16406,58.203125 C 352.78619,78.222978 367.59737,104.91566 367.59766,138.28125 C 367.59737,152.11613 363.7725,165.46247 356.12305,178.32031 C 348.47304,191.17859 332.84805,206.88496 309.24805,225.43945 C 291.37819,235.59876 274.96586,253.5497 274.54302,262.53489 L 273.79665,278.39483 z M 175.70313,312.35352 L 275.06836,312.35352 L 275.06836,400 L 175.70313,400 L 175.70313,312.35352 z " id="QuestionMark"/>
@@ -164,7 +165,7 @@ const displayExperiences = experiences => {
 
         exp += `
                 <div    id="box${i}" 
-                        style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay}s both; "
+                        style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay(i)}s both; "
                         class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox} ${bgColor}  text-${alignText}">
                                             ${i === 7 ? questionmark : ""}
                     <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
@@ -180,7 +181,7 @@ const displayExperiences = experiences => {
 
     experiencesView.innerHTML = exp;
     for (let i = 0; i < boxes.length - 1; i++) {
-        adjustLine(getElements(boxes[i], boxes[i + 1]), i/2)
+        adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
     const height = distanceToTop(getElement(boxes[boxes.length - 3]))
@@ -202,9 +203,11 @@ const displayRepos = myRepos => {
     myRepos.forEach(e => {
         repos += `
             <div class="w-3/4 lg:w-2/5 xl:w-1/4 rounded-lg overflow-hidden shadow-lg bg-gray-300 m-2 hover:shadow-2xl">
-                <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
+                <a href="${e.github_url}" target="_blank"> 
+                    <img class="h-64  w-full object-cover select-none" src="${e.image}" alt="${e.name}">
+                </a>
                 <div class="px-6 py-4 relative">
-                    <a href="${e.github_url}" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>
+                    <a href="${e.github_url}" target="_blank" class="transform -translate-y-8 shadow-lg absolute top-1 right-0 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">GitHub</a>
                     <div class="font-bold text-xl mb-2">${e.name}</div>
                     <p class="text-gray-600 text-xs uppercase font-semibold tracking-wide">${e.languages}</p>
                     <p class="text-gray-700 text-base pt-5">${e.description}</p>
@@ -212,7 +215,7 @@ const displayRepos = myRepos => {
         if (e.homepage.length > 0) {
             repos += `
                     <div class="flex justify-center items-center animate-pulse">
-                        <a href="${e.homepage}"
+                        <a href="${e.homepage}" target="_blank"
                                 class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
                             <span>Homepage</span>
                             <svg class="fill-current w-8 h-8 mr-2 pl-1" xmlns="http://www.w3.org/2000/svg"
@@ -240,8 +243,9 @@ const displaySites = myWebsites => {
                     <img class="rounded-lg w-56" src="${e.logo}" alt="${e.name}">
                 </div>
                 <div class="mt-4 md:mt-0 md:ml-6">
-                    <a href="${e.url}" class="block mt-1 text-2xl leading-tight font-semibold text-gray-900 hover:underline">
-                    ${e.name}</a>
+                    <a href="${e.url}" target="_blank" class="block mt-1 text-2xl leading-tight font-semibold text-gray-900 hover:underline">
+                        ${e.name}
+                    </a>
                     <p class="mt-2 text-gray-600">${e.description}</p>
                 </div>
             </div>
@@ -252,11 +256,11 @@ const displaySites = myWebsites => {
 
 
 window.addEventListener("resize", () => {
-    if(boxes){
+    if (boxes) {
         const allLines = document.querySelectorAll("LINE")
         allLines.forEach(l => l.remove())
-        for (let i = 0; i < boxes.length-1; i++){
-            adjustLine(getElements(boxes[i], boxes[i+1]))
+        for (let i = 0; i < boxes.length - 1; i++) {
+            adjustLine(getElements(boxes[i], boxes[i + 1]))
         }
 
         const height = distanceToTop(getElement(boxes[boxes.length - 3]))
@@ -270,7 +274,7 @@ const render = async () => {
     const myRepos = await (await fetch("./myGitHubs.json")).json()
     displayRepos(myRepos)
     displaySites(myWebsites)
-    displayExperiences(myExperiences, experiencesView, "exp")
+    displayExperiences(myExperiences)
     displayWordCloud()
 }
 

@@ -128,7 +128,7 @@ const skills = {
     "SQL": "65",
     "REST": "66",
     "Spring Framework": "62",
-    "React": "77",
+    "React Redux": "80",
     "Angular": "45",
     "Funktionale Programmierung": "90",
     "Objektorientierte Programmierung": "85",

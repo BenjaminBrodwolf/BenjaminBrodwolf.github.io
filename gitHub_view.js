@@ -190,7 +190,7 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const height = isMobileSize? distanceToTop(getElement(boxes[boxes.length - 1])) :  distanceToTop(getElement(boxes[boxes.length - 5]))
+    const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length])) : distanceToTop(getElement(boxes[boxes.length - 5]))
     document.documentElement.style
         .setProperty("--experience-height", height + "px");
 }
@@ -260,12 +260,9 @@ const displaySites = myWebsites => {
     sitesView.innerHTML = websites;
 }
 
-let recomposeToggle = true;
 window.addEventListener("resize", () => {
-    console.log(mql.matches)
-
-
     if (boxes) {
+        console.log("recompose lines")
         const allLines = document.querySelectorAll("LINE")
         allLines.forEach(l => l.remove())
         for (let i = 0; i < boxes.length - 1; i++) {
@@ -276,7 +273,6 @@ window.addEventListener("resize", () => {
         document.documentElement.style
             .setProperty("--experience-height", height + "px");
     }
-
 })
 
 

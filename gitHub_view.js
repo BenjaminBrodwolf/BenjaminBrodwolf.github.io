@@ -147,10 +147,14 @@ const skills = {
 
 const boxes = []
 const displayExperiences = experiences => {
+
+    const mql = window.matchMedia('(max-width: 600px)');
+
     let exp = ""
     //          [edu, exp, exp, travel, exp, exp, edu, exp]
-    const tops = [0, 1, 2, 2.7, 3, 4, 0, 2]
-    const lefts = [-5, 5, 5, -15, 5, 5, 30, 35]
+    const tops  = mql ?  [0, 1, 2,  3, 4,  5,  6, 8]  : [0, 1, 2, 2.7, 3, 4, 0, 2]
+    const lefts = mql ?  [0, 3, 6, 15, 9, 13, -3, 6] : [-5, 5, 5, -15, 5, 5, 30, 35]
+
 
     const animationDelay = i => (i + 5) / 2;
 
@@ -170,7 +174,7 @@ const displayExperiences = experiences => {
                         style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay(i)}s both; "
                         class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox} ${bgColor}  text-${alignText}">
                                             ${i === 7 ? questionmark : ""}
-                    <a href="${e.url}" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
+                    <a href="${e.url}" class="lg:text-lg block mt-1 leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
                     <p class="text-gray-600">${e.dates} <br> ${e.location}
 
@@ -186,7 +190,7 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const height = distanceToTop(getElement(boxes[boxes.length - 3]))
+    const height =  distanceToTop(getElement(boxes[boxes.length - 3]))
     document.documentElement.style
         .setProperty("--experience-height", height + "px");
 }

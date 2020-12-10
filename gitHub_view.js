@@ -169,10 +169,12 @@ const displayExperiences = experiences => {
                                  <path style="fill:#ffa500" d="M 273.79665,278.39483 L 176.01526,278.41797 C 176.01516,262.63035 180.66722,249.81298 184.24805,239.96582 C 187.82867,230.11898 193.15907,221.12648 200.23926,212.98828 C 207.31921,204.85046 223.22902,190.52755 247.96875,170.01953 C 261.15216,159.27758 267.74395,149.43059 267.74414,140.47852 C 267.74395,131.52696 265.0991,124.56896 259.80957,119.60449 C 254.51968,114.64058 246.50374,112.15849 235.76172,112.1582 C 224.20558,112.15849 214.64342,115.98336 207.0752,123.63281 C 199.50672,131.28282 194.6646,144.62916 192.54883,163.67188 L 97.822266,151.95313 C 101.07745,117.12268 113.73206,89.087225 135.78613,67.84668 C 157.84009,46.606799 191.65353,35.986692 237.22656,35.986328 C 272.70814,35.986692 301.35395,43.392284 323.16406,58.203125 C 352.78619,78.222978 367.59737,104.91566 367.59766,138.28125 C 367.59737,152.11613 363.7725,165.46247 356.12305,178.32031 C 348.47304,191.17859 332.84805,206.88496 309.24805,225.43945 C 291.37819,235.59876 274.96586,253.5497 274.54302,262.53489 L 273.79665,278.39483 z M 175.70313,312.35352 L 275.06836,312.35352 L 275.06836,400 L 175.70313,400 L 175.70313,312.35352 z " id="QuestionMark"/>
                               </svg>`
 
+        //linear-gradient(to right, rgb(190, 227, 248), rgba(0, 0, 0, 0))
+
         exp += `
                 <div    id="box${i}" 
                         style="top: ${tops[i] * 170}px; left: ${lefts[i] + i * 2}vw; animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) ${animationDelay(i)}s both; "
-                        class="absolute p-5 rounded-lg bg-white bg-gradient-to-${alignBox} ${bgColor}  text-${alignText}">
+                        class="absolute p-5 rounded-lg ${bgColor} bg-white text-${alignText}">
                                             ${i === 7 ? questionmark : ""}
                     <a href="${e.url}" class="lg:text-lg block mt-1 leading-tight font-semibold text-gray-900 hover:underline">${e.name}</a>
                     <p class="text-gray-800">${e.employment}</p>
@@ -190,7 +192,7 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 3]))
+    const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-2])) : distanceToTop(getElement(boxes[boxes.length - 3]))
     document.documentElement.style
         .setProperty("--experience-height", heightExperience + "px");
 }
@@ -262,14 +264,13 @@ const displaySites = myWebsites => {
 
 window.addEventListener("resize", () => {
     if (boxes) {
-        console.log("recompose lines")
         const allLines = document.querySelectorAll("LINE")
         allLines.forEach(l => l.remove())
         for (let i = 0; i < boxes.length - 1; i++) {
             adjustLine(getElements(boxes[i], boxes[i + 1]))
         }
 
-        const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 3]))
+        const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-2])) : distanceToTop(getElement(boxes[boxes.length - 3]))
         document.documentElement.style
             .setProperty("--experience-height", heightExperience + "px");
     }

@@ -145,14 +145,15 @@ const skills = {
     "Arduino": "34",
 }
 
+const isMobileSize = window.matchMedia('(max-width: 800px)').matches;
+
 const boxes = []
 const displayExperiences = experiences => {
-    const mql = window.matchMedia('(max-width: 800px)').matches;
-    
+
     let exp = ""
     //          [edu, exp, exp, travel, exp, exp, edu, exp]
-    const tops = mql ? [0, 1, 2, 3, 4, 5, 6, 8] : [0, 1, 2, 3, 4, 5, 0, 2]
-    const lefts = mql ? [0, 3, 6, 15, 9, 13, -3, 6] : [-5, 5, 5, -7, 5, 5, 30, 35]
+    const tops = isMobileSize ? [0, 1, 2, 3, 4, 5, 6, 8] : [0, 1, 2, 3, 4, 5, 0, 2]
+    const lefts = isMobileSize ? [0, 3, 6, 15, 9, 13, -3, 6] : [-5, 5, 5, -7, 5, 5, 30, 35]
 
 
     const animationDelay = i => (i + 5) / 2;
@@ -189,7 +190,7 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const height = distanceToTop(getElement(boxes[boxes.length - 5]))
+    const height = isMobileSize? distanceToTop(getElement(boxes[boxes.length - 1])) :  distanceToTop(getElement(boxes[boxes.length - 5]))
     document.documentElement.style
         .setProperty("--experience-height", height + "px");
 }

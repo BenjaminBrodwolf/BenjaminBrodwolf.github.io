@@ -190,7 +190,7 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length])) : distanceToTop(getElement(boxes[boxes.length - 5]))
+    const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 5]))
     document.documentElement.style
         .setProperty("--experience-height", height + "px");
 }
@@ -269,7 +269,7 @@ window.addEventListener("resize", () => {
             adjustLine(getElements(boxes[i], boxes[i + 1]))
         }
 
-        const height = distanceToTop(getElement(boxes[boxes.length]))
+        const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 5]))
         document.documentElement.style
             .setProperty("--experience-height", height + "px");
     }

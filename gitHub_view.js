@@ -144,16 +144,15 @@ const skills = {
     "Unity3D": "40",
     "Arduino": "34",
 }
+const mql = window.matchMedia('(max-width: 600px)');
 
 const boxes = []
 const displayExperiences = experiences => {
 
-    const mql = window.matchMedia('(max-width: 600px)');
-
     let exp = ""
     //          [edu, exp, exp, travel, exp, exp, edu, exp]
-    const tops  = mql ?  [0, 1, 2,  3, 4,  5,  6, 8]  : [0, 1, 2, 2.7, 3, 4, 0, 2]
-    const lefts = mql ?  [0, 3, 6, 15, 9, 13, -3, 6] : [-5, 5, 5, -15, 5, 5, 30, 35]
+    const tops = mql ? [0, 1, 2, 3, 4, 5, 6, 8] : [0, 1, 2, 2.7, 3, 4, 0, 2]
+    const lefts = mql ? [0, 3, 6, 15, 9, 13, -3, 6] : [-5, 5, 5, -15, 5, 5, 30, 35]
 
 
     const animationDelay = i => (i + 5) / 2;
@@ -260,8 +259,11 @@ const displaySites = myWebsites => {
     sitesView.innerHTML = websites;
 }
 
-
+let recomposeToggle = true;
 window.addEventListener("resize", () => {
+    // console.log(mql.matches)
+
+
     if (boxes) {
         const allLines = document.querySelectorAll("LINE")
         allLines.forEach(l => l.remove())
@@ -273,6 +275,7 @@ window.addEventListener("resize", () => {
         document.documentElement.style
             .setProperty("--experience-height", height + "px");
     }
+
 })
 
 

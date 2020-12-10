@@ -190,9 +190,9 @@ const displayExperiences = experiences => {
         adjustLine(getElements(boxes[i], boxes[i + 1]), animationDelay(i))
     }
 
-    const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 5]))
+    const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 3]))
     document.documentElement.style
-        .setProperty("--experience-height", height + "px");
+        .setProperty("--experience-height", heightExperience + "px");
 }
 
 const displayWordCloud = () => {
@@ -269,9 +269,9 @@ window.addEventListener("resize", () => {
             adjustLine(getElements(boxes[i], boxes[i + 1]))
         }
 
-        const height = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 5]))
+        const heightExperience = isMobileSize ? distanceToTop(getElement(boxes[boxes.length-1])) : distanceToTop(getElement(boxes[boxes.length - 3]))
         document.documentElement.style
-            .setProperty("--experience-height", height + "px");
+            .setProperty("--experience-height", heightExperience + "px");
     }
 })
 
